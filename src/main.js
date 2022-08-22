@@ -18,17 +18,21 @@ const io = new Socket(httpServer);
 // configuro el socket
 
 io.on("connection", async (socket) => {
+    // apenas se genera la conexión tengo que cargar mensajes y productos
   const productos = await contenedorProductos.getAll();
   io.sockets.emit("productos", productos);
   const mensajes = await contenedorMensajes.getAll();
   io.sockets.emit("mensajes", mensajes);
 
   console.log("Nueva conexion");
+  // cuando llega un producto nuevo grabo, obtengo data, hago emit
   socket.on("newProduct", async (data) => {
     await contenedorProductos.save(data);
     const productos = await contenedorProductos.getAll();
     io.sockets.emit("productos", productos);
   });
+
+  // cuando llega un producto nuevo grabo, obtengo data, hago emit
   socket.on("newMessage", async (data) => {
     const message = { dateTime: new Date().toLocaleString("es-AR"), ...data };
     await contenedorMensajes.save(message);

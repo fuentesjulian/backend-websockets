@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Bicicleta Vintage",
+    "price": 35000,
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Left_side_of_Flying_Pigeon.jpg/1024px-Left_side_of_Flying_Pigeon.jpg",
+    "id": 1
+  },
+  {
+    "title": "Carta de Marty McFly a Emmett Brown",
+    "price": 1500,
+    "thumbnail": "https://static.wikia.nocookie.net/bttf/images/9/92/Martysletter.jpg",
+    "id": 2
+  }
+]
